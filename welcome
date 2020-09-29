@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	else
 	{
 		cout << "Hello, " << argv[1] << "." << endl;
-		cout << "My name is " << argv[0] << endl;
+		cout << "My name is " << argv[0] << "." << endl;
 		cout << "Welcome to the CLI's world." << endl;
 	}
 	return 0;
