@@ -3,16 +3,16 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	if (argc != 2)
+	if (argc != 3)
 	{
 		cout << "usage : " << endl;
-		cout << "   " << "master" << "   " << "user" << endl;
+		cout << "   " << argv[0] << "  Host" << endl;
 	}
 	else
 	{
 		cout << "Hello, " << argv[1] << "." << endl;
-		cout << "My name is " << argv[0] << "." << endl;
-		cout << "Welcome to the CLI's world." << endl;
+		cout << "My name is " << argv[2] << "." << endl;
+		cout << "Welcome！" << endl;
 	}
 	return 0;
 }
