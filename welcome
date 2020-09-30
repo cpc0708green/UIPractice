@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 	if (argc != 3)
 	{
 		cout << "usage : " << endl;
-		cout << "   " << argv[0] << "  Host" << endl;
+		cout << "   " << argv[0] << " User Host" << endl;
 	}
 	else
 	{
