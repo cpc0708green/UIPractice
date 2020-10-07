@@ -1,20 +1,84 @@
-// 20200929 CHEN PEI CHI
+// 20200929 CHEN PEI CHI 1.0
+// 20201007 CHEN PEI CHI 2.0
 
 #include <iostream>
 using namespace std;
 
+void error(const string& msg)
+{
+	cerr << "Error:\n  " << msg << endl;
+}
+
+void usage(const string& cmd)
+{
+	string opt[] =
+	{
+		"where\n",
+		" -h host   the host name.\n",
+		" -v visitor   the user name.\n",
+	};
+
+	cout << "Usage: \n";
+	cout << "   " << cmd << " -h host -v visitor\n";
+
+	for (int i = 0; i < (sizeof(opt) / sizeof(string)); i++)
+	{
+		cout << opt[i];
+	}
+	exit(-1);
+}
+
+void welcome(const string& host, const string& user)
+{
+	cout << "Hello, " << user << "." << endl;
+	cout << "My name is " << host << "." << endl;
+	cout << "Welcome！" << endl;
+}
+
 int main(int argc, char* argv[])
 {
-	if (argc != 3)
+	string host;
+	string user;
+
+	if (argc != 5 && argc != 2)
 	{
-		cout << "usage : " << endl;
-		cout << "   " << argv[0] << " User Host" << endl;
+		error("Wrong number of parameters.");
+		usage(argv[0]);
 	}
-	else
+	
+	if (argc == 2)
 	{
-		cout << "Hello, " << argv[1] << "." << endl;
-		cout << "My name is " << argv[2] << "." << endl;
-		cout << "Welcome！" << endl;
+		string arg = argv[1];
+
+		if (arg == "-?")
+		{
+			usage(argv[0]);
+		}
+		else
+		{
+			error("Wrong number of parameters.");
+			usage(argv[0]);
+		}
 	}
+	
+	for (int i = 1; i < argc; i = i + 2)
+	{
+		string arg = argv[i];
+		
+		if (arg == "-h")
+		{
+			host = argv[i + 1];
+		}
+		else if (arg == "-v")
+		{
+			user = argv[i + 1];
+		}
+		else
+		{
+			error("Unknown options: " + arg);
+			usage(argv[0]);
+		}
+	}
+	welcome(host, user);
 	return 0;
 }
