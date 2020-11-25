@@ -1,3 +1,30 @@
+/*
+109-1 åµŒå…¥å¼ç¨‹å¼è¨­è¨ˆ æœŸä¸­è©•é‡
+108153017 è³‡è¨Šæ‡‰ç”¨å­¸ç³» ç³»çµ±çµ„ é™³æµ¿ç¶º
+*/
+
+/*
+ç°¡å–®èªª *ç¨‹å¼ (sample.exe) è¡Œç‚º* éµå¾ªä¸‹åˆ—è¦å‰‡ï¼š
+1. sample -? : å‘¼å« usage()
+1. sample -b dec : å‘¼å« dec2bin(dec)
+1. sample -B bin : å‘¼å« bin2dec(bin)
+1. sample -h dec : å‘¼å« dec2hex(dec)
+1. sample -H hex : å‘¼å« hex2dec(hex)
+1. sample -o dec : å‘¼å« dec2oct(dec)
+1. sample -O oct : å‘¼å« oct2dec(oct)
+1. sample -x dec : å‘¼å« sample_usage(dec)
+
+ä¸Šå‚³ç¨‹å¼ --- å°è‡ªå·±çš„ç¨‹å¼æ»¿æ„å¾Œï¼š
+1. åŒæ­¥åˆ°è‡ªå·±çš„ GitHub å°ˆæ¡ˆè£¡
+1. ç‚ºç¢ºä¿ä¸€è‡´çš„æˆªæ­¢æ™‚é™ï¼Œè«‹åŒæ™‚å°‡é€™ä»½æª”æ¡ˆ (midterm.cpp)ï¼Œä¸Šå‚³ä¸€ä»½åˆ°æ•¸ä½å­¸ç¿’å¹³å°ã€‚
+
+ä½œæ¥­æç¤º
+1. GitHub çš„ç‰ˆæœ¬ï¼Œä½ å¯ä»¥æŒçºŒæ›´æ–°
+1. æˆªæ­¢æœŸé™å‰ï¼Œä½ å¯ä»¥å¤šæ¬¡ä¸Šå‚³æª”æ¡ˆåˆ°æ•¸ä½å­¸ç¿’å¹³å°
+
+ç¥ ä¸€åˆ‡é †åˆ©
+*/
+
 #include <bitset>
 #include <iomanip>
 #include <iostream>
@@ -5,9 +32,9 @@
 #include <string>
 
 /**
- *  ¿é¥X¿ù»~°T®§¡C
+ *  è¼¸å‡ºéŒ¯èª¤è¨Šæ¯ã€‚
  *
- *  @param const std::string& cmd   µ{¦¡°õ¦æ®Éªº¦WºÙ
+ *  @param const std::string& cmd   ç¨‹å¼åŸ·è¡Œæ™‚çš„åç¨±
  *  @return none.
  *  @since  0.1.0
  **/
@@ -20,15 +47,15 @@ void error(const std::string& cmd, const std::string& msg)
 } // error()
 
 /**
- *  ¦L¥X¤Q¶i¨îÂà´«´£¥Ü¦r¦ê¡C«Øºc¨Ã¿é¥X¤@­Ó®æ¦¡¬°:
+ *  å°å‡ºåé€²åˆ¶è½‰æ›æç¤ºå­—ä¸²ã€‚å»ºæ§‹ä¸¦è¼¸å‡ºä¸€å€‹æ ¼å¼ç‚º:
  *    Decimal number #dec in #base: #num
- *  ªº´£¥Ü¦r¦ê¡F¨ä¤¤:
- *      #dec  ¥Nªí¤Q¶i¨î¼Æ¦r¦r¦ê¡F
- *      #base ¬OÂà´«°ò©³ (base)¡A¦p¤G¶i¡A¤K¶i¨îµ¥¡F
- *      #num  ¬OÂà´««á¼Æ¦r¦r¦ê
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
- *  @param const std::string& base  ¼Æ¦r°ò©³¦r¦ê
- *  @param const std::string& num   Âà´««á¼Æ¦r¦r¦ê
+ *  çš„æç¤ºå­—ä¸²ï¼›å…¶ä¸­:
+ *      #dec  ä»£è¡¨åé€²åˆ¶æ•¸å­—å­—ä¸²ï¼›
+ *      #base æ˜¯è½‰æ›åŸºåº• (base)ï¼Œå¦‚äºŒé€²ï¼Œå…«é€²åˆ¶ç­‰ï¼›
+ *      #num  æ˜¯è½‰æ›å¾Œæ•¸å­—å­—ä¸²
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @param const std::string& base  æ•¸å­—åŸºåº•å­—ä¸²
+ *  @param const std::string& num   è½‰æ›å¾Œæ•¸å­—å­—ä¸²
  *  @return None.
  *  @since  0.1.0
  **/
@@ -38,10 +65,10 @@ void numInBase(const std::string& dec, const std::string& base, const std::strin
 } // numInBase
 
 /**
- *  ±N¤Q¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤G¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡åé€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºäºŒé€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤G¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             äºŒé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string dec2bin(const std::string& dec) 
@@ -56,10 +83,10 @@ std::string dec2bin(const std::string& dec)
 } // decToBin()
 
 /**
- *  ±N¤Q¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤Q¤»¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡åé€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºåå…­é€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤Q¤»¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             åå…­é€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string dec2hex(const std::string& dec) 
@@ -74,10 +101,10 @@ std::string dec2hex(const std::string& dec)
 } // decToHex()
 
 /**
- *  ±N¤Q¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤K¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡åé€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºå…«é€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤K¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             å…«é€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string dec2oct(const std::string& dec) 
@@ -92,15 +119,15 @@ std::string dec2oct(const std::string& dec)
 } // decToOct()
 
 /**
- *  ¦L¥XÂà´«¤Q¶i¨î´£¥Ü¦r¦ê¡C«Øºc¨Ã¿é¥X¤@­Ó®æ¦¡¬°:
+ *  å°å‡ºè½‰æ›åé€²åˆ¶æç¤ºå­—ä¸²ã€‚å»ºæ§‹ä¸¦è¼¸å‡ºä¸€å€‹æ ¼å¼ç‚º:
  *    #base number #num in decimal: #dec
- *  ªº´£¥Ü¦r¦ê¡F¨ä¤¤:
- *      #base ¬O¼Æ¦r°ò©³ (base)¡A¦p¤G¶i¡A¤K¶i¨îµ¥¡F
- *      #num  ¬O¼Æ¦r¦r¦ê
- *      #dec  ¥Nªí¤Q¶i¨î¼Æ¦r¦r¦ê¡F
- *  @param const std::string& base  ¼Æ¦r°ò©³¦r¦ê
- *  @param const std::string& num   ¼Æ¦r¦r¦ê
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  çš„æç¤ºå­—ä¸²ï¼›å…¶ä¸­:
+ *      #base æ˜¯æ•¸å­—åŸºåº• (base)ï¼Œå¦‚äºŒé€²ï¼Œå…«é€²åˆ¶ç­‰ï¼›
+ *      #num  æ˜¯æ•¸å­—å­—ä¸²
+ *      #dec  ä»£è¡¨åé€²åˆ¶æ•¸å­—å­—ä¸²ï¼›
+ *  @param const std::string& base  æ•¸å­—åŸºåº•å­—ä¸²
+ *  @param const std::string& num   æ•¸å­—å­—ä¸²
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @return None.
  *  @since  0.1.0
  **/
@@ -110,10 +137,10 @@ void numInDec(const std::string& base, const std::string& num, const std::string
 } // numInDec()
 
 /**
- *  ±N¤G¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤Q¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡äºŒé€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºåé€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& bin   ¤G¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& bin   äºŒé€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string bin2dec(const std::string& bin) 
@@ -128,10 +155,10 @@ std::string bin2dec(const std::string& bin)
 } // bin2dec()
 
 /**
- *  ±N¤K¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤Q¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡å…«é€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºåé€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& oct   ¤K¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& oct   å…«é€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string oct2dec(const std::string& oct) 
@@ -146,10 +173,10 @@ std::string oct2dec(const std::string& oct)
 } // oct2dec()
 
 /**
- *  ±N¤Q¤»¶i¨î¼Æ¦r¦r¦êÂà´«¬°¤Q¶i¨î¼Æ¦r¦r¦ê¡C
+ *  å°‡åå…­é€²åˆ¶æ•¸å­—å­—ä¸²è½‰æ›ç‚ºåé€²åˆ¶æ•¸å­—å­—ä¸²ã€‚
  *
- *  @param const std::string& hex   ¤Q¤»¶i¨î¼Æ¦r¦r¦ê
- *  @return std::string             ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& hex   åå…­é€²åˆ¶æ•¸å­—å­—ä¸²
+ *  @return std::string             åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @since  0.1.0
  **/
 std::string hex2dec(const std::string& hex) 
@@ -164,12 +191,12 @@ std::string hex2dec(const std::string& hex)
 } // hex2dec()
 
 /**
- *  ÀË¬d *str* ¬O¤£¬O¼Æ¦r¦r¦ê¡C§Q¥Î C++ ªº stol (string-to-long)
- *  ¨ç¼ÆÀË¬d¿é¤Jªº¦r¦ê¬O¤£¬O¦X²zªº *¼Æ¦r¦r¦ê*¡C
+ *  æª¢æŸ¥ *str* æ˜¯ä¸æ˜¯æ•¸å­—å­—ä¸²ã€‚åˆ©ç”¨ C++ çš„ stol (string-to-long)
+ *  å‡½æ•¸æª¢æŸ¥è¼¸å…¥çš„å­—ä¸²æ˜¯ä¸æ˜¯åˆç†çš„ *æ•¸å­—å­—ä¸²*ã€‚
  *
- *  @param const std::string& str   ­nÀË¬dªº¦r¦ê
- *  @return bool    true    ¦Xªkªº¼Æ¦r¦r¦ê
- *                  false   §t¦³«D¼Æ¦r¦r¤¸ªº¦r¦ê
+ *  @param const std::string& str   è¦æª¢æŸ¥çš„å­—ä¸²
+ *  @return bool    true    åˆæ³•çš„æ•¸å­—å­—ä¸²
+ *                  false   å«æœ‰éæ•¸å­—å­—å…ƒçš„å­—ä¸²
  *  @since  0.1.0
  **/
 bool is_number(const std::string& str, int base = 10) 
@@ -189,9 +216,9 @@ bool is_number(const std::string& str, int base = 10)
 } // is_number()
 
 /** 
- *  ¤Q¶i¨î-¤G¶i¨î¼Æ¦r¤¬¬ÛÂà´«´ú¸Õ¨ç¼Æ¡C
+ *  åé€²åˆ¶-äºŒé€²åˆ¶æ•¸å­—äº’ç›¸è½‰æ›æ¸¬è©¦å‡½æ•¸ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @return none.
  *  @since  0.1.0
  **/
@@ -212,9 +239,9 @@ bool test_dec_bin(const std::string& cmd, const std::string& dec)
 } // test_dec_bin();
 
 /**
- *  ¤Q¶i¨î-¤Q¤»¶i¨î¼Æ¦r¤¬¬ÛÂà´«´ú¸Õ¨ç¼Æ¡C
+ *  åé€²åˆ¶-åå…­é€²åˆ¶æ•¸å­—äº’ç›¸è½‰æ›æ¸¬è©¦å‡½æ•¸ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @return none.
  *  @since  0.1.0
  **/
@@ -235,9 +262,9 @@ bool test_dec_hex(const std::string& cmd, const std::string& dec)
 } // test_dec_hex();
 
 /**
- *  ¤Q¶i¨î-¤K¶i¨î¼Æ¦r¤¬¬ÛÂà´«´ú¸Õ¨ç¼Æ¡C
+ *  åé€²åˆ¶-å…«é€²åˆ¶æ•¸å­—äº’ç›¸è½‰æ›æ¸¬è©¦å‡½æ•¸ã€‚
  *
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @return none.
  *  @since  0.1.0
  **/
@@ -258,10 +285,10 @@ bool test_dec_oct(const std::string& cmd, const std::string& dec)
 } // test_dec_oct();
 
 /**
- *  ¿é¥Xµ{¦¡¨Ï¥Î½d¨Ò¡C
+ *  è¼¸å‡ºç¨‹å¼ä½¿ç”¨ç¯„ä¾‹ã€‚
  *
- *  @param const std::string& cmd   µ{¦¡°õ¦æ®Éªº¦WºÙ
- *  @param const std::string& dec   ¤Q¶i¨î¼Æ¦r¦r¦ê
+ *  @param const std::string& cmd   ç¨‹å¼åŸ·è¡Œæ™‚çš„åç¨±
+ *  @param const std::string& dec   åé€²åˆ¶æ•¸å­—å­—ä¸²
  *  @return none.
  *  @since  0.1.0
  **/
@@ -275,9 +302,9 @@ void sample_usage(const std::string& cmd, const std::string& dec)
 } // sample_usage()
 
 /**
- *  ¿é¥Xµ{¦¡¨Ï¥Î»¡©ú¡C
+ *  è¼¸å‡ºç¨‹å¼ä½¿ç”¨èªªæ˜ã€‚
  *
- *  @param const std::string& cmd   µ{¦¡°õ¦æ®Éªº¦WºÙ
+ *  @param const std::string& cmd   ç¨‹å¼åŸ·è¡Œæ™‚çš„åç¨±
  *  @return none.
  *  @since  0.1.0
  **/
@@ -301,16 +328,16 @@ void usage(const std::string& cmd)
 } // usage()
 
 /**
- *  *¶É¦L* ©R¥O¦C°Ñ¼Æ¡C±N©R¥O¦C°Ñ¼Æ¥ş¼Æ¶É¦L¦b¿Ã¹õ¤W¡C
+ *  *å‚¾å°* å‘½ä»¤åˆ—åƒæ•¸ã€‚å°‡å‘½ä»¤åˆ—åƒæ•¸å…¨æ•¸å‚¾å°åœ¨è¢å¹•ä¸Šã€‚
  *
- *  @param const int argc           ©R¥O¦C°Ñ¼Æ­Ó¼Æ
- *  @param const char *argv[]       ©R¥O¦C°Ñ¼Æ°}¦C
+ *  @param const int argc           å‘½ä»¤åˆ—åƒæ•¸å€‹æ•¸
+ *  @param const char *argv[]       å‘½ä»¤åˆ—åƒæ•¸é™£åˆ—
  *  @return int
  *  @since  0.1.0
  **/
 void args_dump(int argc, char* argv[]) 
 {
-    // ¦C¦L©Ò¦³ªº *©R¥O¦C°Ñ¼Æ*
+    // åˆ—å°æ‰€æœ‰çš„ *å‘½ä»¤åˆ—åƒæ•¸*
     std::cout << "command line arguments: argv[i]" << std::endl;
 
     for (int i = 0; i < argc; i++) 
@@ -323,121 +350,78 @@ void args_dump(int argc, char* argv[])
 }
 
 /**
- *  µ{¦¡¶i¤JÂI¡C
+ *  ç¨‹å¼é€²å…¥é»ã€‚
  *
- *  @param const int argc           ©R¥O¦C°Ñ¼Æ­Ó¼Æ
- *  @param const char *argv[]       ©R¥O¦C°Ñ¼Æ°}¦C
+ *  @param const int argc           å‘½ä»¤åˆ—åƒæ•¸å€‹æ•¸
+ *  @param const char *argv[]       å‘½ä»¤åˆ—åƒæ•¸é™£åˆ—
  *  @return int
  *  @since  0.1.0
  **/
-int main(int argc, char* argv[]) 
+int main(int argc, char* argv[])
 {
     std::string arg = argv[1];
 
-    if (argc == 2)
+    std::cout << "æ‰€æœ‰çš„å‘½ä»¤åˆ—åƒæ•¸ï¼š" << std::endl;
+    args_dump(argc, argv);
+
+    std::cout << " " << std::endl;
+
+    if (argc == 2 || argc == 3)
     {
-        // ¸õ¥X¨Ï¥Î»¡©ú
-        if (arg == "-?")
+        if (argc == 2)
         {
-            usage(argv[0]);
+            // è·³å‡ºä½¿ç”¨èªªæ˜
+            if (arg == "-?")
+            {
+                usage(argv[0]);
+            }
+            else
+            {
+                error(argv[0], argv[1]);
+            }
+        }
+        else if (argc == 3)
+        {
+            // åé€²ä½è½‰äºŒé€²ä½
+            if (arg == "-b")
+            {
+                dec2bin(argv[2]);
+            }
+            // äºŒé€²ä½è½‰åé€²ä½
+            else if (arg == "-B")
+            {
+                bin2dec(argv[2]);
+            }
+            // åé€²ä½è½‰åå…­é€²ä½
+            else if (arg == "-h")
+            {
+                dec2hex(argv[2]);
+            }
+            // åå…­é€²ä½è½‰åé€²ä½
+            else if (arg == "-H")
+            {
+                hex2dec(argv[2]);
+            }
+            else if (arg == "-o")
+            {
+                dec2oct(argv[2]);
+            }
+            else if (arg == "-O")
+            {
+                oct2dec(argv[2]);
+            }
+            else if (arg == "-x")
+            {
+                sample_usage(argv[0], argv[2]);
+            }
+            else
+            {
+                error(argv[0], argv[1]);
+            }
         }
     }
-    else if (argc == 3)
+    else
     {
-        // ¤Q¶i¦ìÂà¤G¶i¦ì
-        if (arg == "-b")
-        {
-            dec2bin(argv[2]);
-        }
-        // ¤G¶i¦ìÂà¤Q¶i¦ì
-        else if (arg == "-B")
-        {
-            bin2dec(argv[2]);
-        }
-        // ¤Q¶i¦ìÂà¤Q¤»¶i¦ì
-        else if (arg == "-h")
-        {
-            dec2hex(argv[2]);
-        }
-        // ¤Q¤»¶i¦ìÂà¤Q¶i¦ì
-        else if (arg == "-H")
-        {
-            hex2dec(argv[2]);
-        }
-        else if (arg == "-o")
-        {
-            dec2oct(argv[2]);
-        }
-        else if (arg == "-O")
-        {
-            oct2dec(argv[2]);
-        }
-        else if (arg == "-x")
-        {
-            sample_usage(argv[0], argv[2]);
-        }
+        error(argv[0], argv[1]);
     }
-
-    // args_dump(argc, argv); // ¦pªG·Q­nÀË¬dµ{¦¡±µ¦¬¨ìªº
-                              // ©R¥O¦C°Ñ¼Æ¡F¥i¥H±N«e­±ªº
-                              // µù¸Ñ®³±¼
-
-    // ½Ğ¦b³o¸Ì©ñ¤W§Aªºµ{¦¡½X
-    // ¨Ï±o½sÄ¶«áªº°õ¦æÀÉ¦æ¬°©M sample.exe ¤@­P¡C
-    //
-    // Â²³æ»¡ *µ{¦¡ (sample.exe) ¦æ¬°* ¿í´`¤U¦C³W«h¡G
-    //
-    //  1. sample -? : ©I¥s usage()
-    //
-    //  1. sample -b dec : ©I¥s dec2bin(dec)
-    //
-    //  1. sample -B bin : ©I¥s bin2dec(bin)
-    //
-    //  1. sample -h dec : ©I¥s dec2hex(dec)
-    //
-    //  1. sample -H hex : ©I¥s hex2dec(hex)
-    //
-    //  1. sample -o dec : ©I¥s dec2oct(dec)
-    //
-    //  1. sample -O oct : ©I¥s oct2dec(oct)
-    //
-    //  1. sample -x dec : ©I¥s sample_usage(dec)
-    //
-    //  °õ¦æ½d¨Ò
-    //
-    //  1. ¥i¥H¦b©R¥O¦C°õ¦æ test.bat
-    //
-    //     C:\path_to\UI_Practice\9th\midterm> test.bat
-    //
-    //     ¬İ sample.exe ªº°õ¦æ½d¨Ò
-    //
-    //  1. ©Î¡A¦b©R¥O¦C°õ¦æ¡G
-    //
-    //     C:\path_to\UI_Practice\9th\midterm> sample -?
-    //
-    //     ¨Ó¬İ sample.exe ªº¥Îªk¡F¦A¦Û¦æ¹Á¸Õ¡C
-    //
-    //  ´ú¸Õµ{¦¡
-    //
-    //  1. °²³]§Aªºµ{¦¡½sÄ¶¦¨ mywork.exe¡A¦b©R¥O¦C°õ¦æ¡G
-    //
-    //     C:\path_to\UI_Practice\9th\midterm> test.bat mywork
-    //
-    //     ¬İ mywork.exe ªº´ú¸Õ°õ¦æµ²ªG
-    //
-    //  ¤W¶Çµ{¦¡ --- ¹ï¦Û¤vªºµ{¦¡º¡·N«á¡G
-    //
-    //  1. ¦P¨B¨ì¦Û¤vªº GitHub ±M®×¸Ì
-    //
-    //  1. ¬°½T«O¤@­PªººI¤î®É­­¡A½Ğ¦P®É±N³o¥÷ÀÉ®× (midterm.cpp)
-    //     ¤W¶Ç¤@¥÷¨ì¼Æ¦ì¾Ç²ß¥­¥x¡C
-    //
-    //  §@·~´£¥Ü
-    //
-    //  1. GitHub ªºª©¥»¡A§A¥i¥H«ùÄò§ó·s
-    //
-    //  1. ºI¤î´Á­­«e¡A§A¥i¥H¦h¦¸¤W¶ÇÀÉ®×¨ì¼Æ¦ì¾Ç²ß¥­¥x
-    //
-    //  ¯¬
-    //    ¤@¤Á¶¶§Q
-} // main()
+}
